@@ -1,10 +1,14 @@
 import React from 'react';
-import './App.css';
+import Title from './components/Title/Title';
+import Navbar from './components/Navbar/Navbar';
+import Slider from './components/Slider/Slider';
 
 function App() {
   return (
-    <div>
-     Group 9
+    <div className='font-display'>
+     <Title />
+     <Navbar />
+     <Slider />
     </div>
   );
 }
