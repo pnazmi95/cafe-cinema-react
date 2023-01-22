@@ -4,9 +4,9 @@ import movies from "../../movies";
 function Slider(): JSX.Element {
   return (
     <div className="h-auto w-full">
-      {movies.map((item) => (
+      {/* {movies.map((item) => (
         <img key={item.id} src={item.slider} />
-      ))}
+      ))} */}
     </div>
   );
 }
