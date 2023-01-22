@@ -5,7 +5,7 @@ import { RxDotFilled } from "react-icons/rx";
 
 const movieItems = [...movies];
 
-function MoviesSlider(): JSX.Element {
+function SeriesSlider(): JSX.Element {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlideHandler = () => {
@@ -23,12 +23,11 @@ function MoviesSlider(): JSX.Element {
   const goToSlide = (slideIndex: number) => {
     setCurrentIndex(slideIndex);
   };
-
   return (
-    <div className="flex flex-col items-center justify-center bg-light-primary dark:bg-dark-primary">
+    <div className="flex flex-col items-center justify-center bg-dark-primary dark:bg-light-primary">
       {/* <h1 className="mt-10 text-center text-4xl text-light-heading dark:text-light-primary">
-        Movies
-      </h1> */}
+    Movies
+  </h1> */}
       <div className="group relative m-auto h-[49rem] w-full max-w-7xl py-16 px-4">
         <div
           style={{
@@ -63,4 +62,4 @@ function MoviesSlider(): JSX.Element {
   );
 }
 
-export default MoviesSlider;
+export default SeriesSlider;

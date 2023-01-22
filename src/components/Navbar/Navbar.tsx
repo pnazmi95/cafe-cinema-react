@@ -6,7 +6,7 @@ import Search from "./Search";
 
 function Navbar(): JSX.Element {
   return (
-    <nav className="sticky top-0 flex h-16 items-center justify-center bg-light-secondary dark:bg-dark-secondary">
+    <nav className="sticky top-0 z-50 flex h-16 items-center justify-center bg-light-secondary dark:bg-dark-secondary">
       <div className="flex w-full max-w-7xl items-center justify-between">
         <ul className="flex items-center justify-evenly gap-4">
           <NavItem title="home" />
