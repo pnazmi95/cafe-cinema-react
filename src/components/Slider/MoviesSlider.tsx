@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import movies from "../../movies";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import { RxDotFilled } from "react-icons/rx";
 
 const movieItems = [...movies];
 
@@ -26,10 +25,7 @@ function MoviesSlider(): JSX.Element {
 
   return (
     <div className="flex flex-col items-center justify-center bg-light-primary dark:bg-dark-primary">
-      {/* <h1 className="mt-10 text-center text-4xl text-light-heading dark:text-light-primary">
-        Movies
-      </h1> */}
-      <div className="group relative m-auto h-[49rem] w-full max-w-7xl py-16 px-4">
+      <div className="group relative m-auto h-[calc(100vh-128px)] w-full max-w-7xl pb-12 pt-2 px-2">
         <div
           style={{
             backgroundImage: `url(${movieItems[currentIndex].slider})`,
@@ -37,25 +33,25 @@ function MoviesSlider(): JSX.Element {
           className="h-full w-full rounded-2xl bg-cover bg-center duration-500"
         ></div>
         {/* left arrow */}
-        <div className="absolute top-[50%] left-5 hidden -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full bg-dark-primary/20 p-2 text-2xl text-dark-heading group-hover:block dark:bg-light-primary dark:text-dark-primary">
+        <div className="transition-opacity duration-500 absolute top-[50%] left-5 -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full bg-dark-primary/20 p-2 text-2xl text-dark-heading opacity-0 group-hover:opacity-100 dark:bg-light-primary dark:text-dark-primary">
           <BsChevronCompactLeft onClick={prevSlideHandler} size={30} />
         </div>
         {/* right arrow */}
-        <div className="absolute top-[50%] right-5 hidden -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full bg-dark-primary/20 p-2 text-2xl text-dark-heading group-hover:block dark:bg-light-primary dark:text-dark-primary">
+        <div className="transition-opacity duration-500 absolute top-[50%] right-5 -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full bg-dark-primary/20 p-2 text-2xl text-dark-heading opacity-0 group-hover:opacity-100 dark:bg-light-primary dark:text-dark-primary">
           <BsChevronCompactRight onClick={nextSlideHandler} size={30} />
         </div>
         {/* dots */}
-        <div className="top-4 flex items-center justify-center py-2">
+        <div className="top-4 flex items-center justify-center gap-2 py-5">
           {movieItems.map((item, index) => (
             <div
               key={index}
               onClick={() => {
                 goToSlide(index);
               }}
-              className="cursor-pointer text-2xl text-dark-primary dark:text-light-primary"
-            >
-              <RxDotFilled />
-            </div>
+              className={`h-[0.5rem] w-[0.5rem] cursor-pointer rounded-full bg-dark-primary dark:bg-light-primary ${
+                currentIndex === index && "bg-dark-error dark:bg-dark-error"
+              }`}
+            ></div>
           ))}
         </div>
       </div>
