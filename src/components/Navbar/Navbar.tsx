@@ -3,6 +3,7 @@ import User from "./User";
 import DarkMode from "./DarkMode";
 import NavItem from "./NavItem";
 import Search from "./Search";
+import Cart from "./Cart";
 
 function Navbar(): JSX.Element {
   return (
@@ -17,6 +18,7 @@ function Navbar(): JSX.Element {
         </ul>
         <div className="flex items-center justify-evenly gap-10">
           <Search />
+          <Cart />
           <User />
           <DarkMode />
         </div>
