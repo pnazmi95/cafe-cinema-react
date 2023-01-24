@@ -33,13 +33,14 @@ function MoviesSlider(): JSX.Element {
           }}
           className="h-full w-full rounded-2xl bg-cover bg-center duration-500"
         ></div>
-        {/* left arrow */}
-        <div className="absolute top-[50%] left-5 -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full bg-dark-primary/20 p-2 text-2xl text-dark-heading opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:bg-light-primary dark:text-dark-primary">
-          <BsChevronCompactLeft onClick={prevSlideHandler} size={30} />
-        </div>
-        {/* right arrow */}
-        <div className="absolute top-[50%] right-5 -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full bg-dark-primary/20 p-2 text-2xl text-dark-heading opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:bg-light-primary dark:text-dark-primary">
-          <BsChevronCompactRight onClick={nextSlideHandler} size={30} />
+        {/* arrows */}
+        <div className="duration-400 absolute top-0 left-0 flex h-[calc(100%-48px)] w-full items-center justify-between px-2 pt-2 text-2xl text-dark-heading opacity-0 transition-opacity group-hover:opacity-100">
+          <div className="cursor-pointer rounded-full bg-dark-primary/20 p-1 dark:bg-light-primary/20">
+            <BsChevronCompactLeft onClick={prevSlideHandler} size={25} />
+          </div>
+          <div className="cursor-pointer rounded-full bg-dark-primary/20 p-1 dark:bg-light-primary/20">
+            <BsChevronCompactRight onClick={nextSlideHandler} size={25} />
+          </div>
         </div>
         {/* dots */}
         <div className="top-4 flex items-center justify-center gap-2 py-5">
@@ -56,45 +57,53 @@ function MoviesSlider(): JSX.Element {
           ))}
         </div>
         {/* Card */}
-        <div className="absolute top-[47%] left-[6%] flex h-[85%] w-[50%] -translate-x-0 translate-y-[-50%] items-center justify-center gap-3  border-2 border-light-primary bg-light-primary bg-opacity-40 p-3 text-dark-primary dark:border-dark-primary dark:bg-dark-primary dark:bg-opacity-75 dark:text-dark-heading">
+        <div className="absolute top-[47%] left-[6%] flex h-[85%] w-[50%] -translate-x-0 translate-y-[-50%] items-center justify-center gap-3  border-2 border-light-primary bg-light-primary p-3 text-dark-primary dark:border-dark-primary dark:bg-dark-primary dark:text-dark-heading">
           <img
             src={`${movieItems[currentIndex].poster}`}
             className="h-[90%] w-[50%] bg-cover bg-center duration-500"
           ></img>
-          <div className="flex h-[90%] max-h-[90%] min-h-[90%] w-[50%] flex-col justify-around">
-            <div
-              id="MovieTitle"
-              className="font-bold uppercase text-dark-hover dark:text-dark-error "
-            >
-              {`${movieItems[currentIndex].title}`}
-            </div>
-            <div id="YearScoreBlock" className="flex justify-between">
-              <div>{`${movieItems[currentIndex].year}`}</div>
-              <div>
-                {`${movieItems[currentIndex].rate}/10`}
-                <span className="font-bold text-dark-hover dark:text-dark-error ">IMDB</span>
+          <div className="flex h-[90%] max-h-[90%] min-h-[90%] w-[50%] flex-col justify-between">
+            <div className="flex flex-col">
+              <div
+                id="MovieTitle"
+                className="font-bold uppercase text-dark-hover dark:text-dark-error "
+              >
+                {`${movieItems[currentIndex].title}`}
               </div>
-            </div>
-            <div id="DesInfo" className="flex flex-col justify-between gap-12">
-              <div className="text-justify">{`${movieItems[currentIndex].summary}`}</div>
-              <div className="flex flex-col">
-                <p>
-                  <span className="font-bold text-dark-hover dark:text-dark-error">Director: </span>
-                  {`${movieItems[currentIndex].director}`}
-                </p>
-                <p>
-                  <span className="font-bold text-dark-hover dark:text-dark-error">Stars: </span>
-                  {`${movieItems[currentIndex].stars.join(", ")}`}
-                </p>
-                <p>
-                  <span className="font-bold text-dark-hover dark:text-dark-error">Geners: </span>
-                  {`${movieItems[currentIndex].genre.join(", ")}`}
-                </p>
+              <div id="YearScoreBlock" className="flex justify-between">
+                <div>{`${movieItems[currentIndex].year}`}</div>
+                <div>
+                  {`${movieItems[currentIndex].rate}/10`}
+                  <span className="font-bold text-dark-hover dark:text-dark-error ">
+                    IMDB
+                  </span>
+                </div>
               </div>
+              <div className="text-justify dark:text-dark-content">{`${movieItems[currentIndex].summary}`}</div>
             </div>
-            <div className="flex flex-col gap-2">
-              <Button title="Add To Card" />
-              <Button title="Read More" />
+            <div className="flex flex-col">
+              <p>
+                <span className="font-bold text-dark-hover dark:text-dark-error">
+                  Director:{" "}
+                </span>
+                {`${movieItems[currentIndex].director}`}
+              </p>
+              <p>
+                <span className="font-bold text-dark-hover dark:text-dark-error">
+                  Stars:{" "}
+                </span>
+                {`${movieItems[currentIndex].stars.join(", ")}`}
+              </p>
+              <p>
+                <span className="font-bold text-dark-hover dark:text-dark-error">
+                  Geners:{" "}
+                </span>
+                {`${movieItems[currentIndex].genre.join(", ")}`}
+              </p>
+              <div className="flex flex-col gap-2">
+                <Button title="Add To Card" />
+                <Button title="Read More" />
+              </div>
             </div>
           </div>
         </div>
@@ -104,3 +113,4 @@ function MoviesSlider(): JSX.Element {
 }
 
 export default MoviesSlider;
+
