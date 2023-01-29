@@ -1,15 +1,18 @@
-import React from 'react';
-import Title from './components/Title/Title';
-import Navbar from './components/Navbar/Navbar';
-import MoviesSlider from './components/Slider/MoviesSlider';
-import Default from './layout/default/Default';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+import HomePage from "./pages/HomePage";
 
-function App() {
+function App(): JSX.Element {
   return (
-    <Default>
-      <MoviesSlider />
-    </Default>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+

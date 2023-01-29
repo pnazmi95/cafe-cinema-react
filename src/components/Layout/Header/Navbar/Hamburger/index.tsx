@@ -1,7 +1,11 @@
 import { useState } from "react";
-import NavItem from "./NavItem";
+import NavItem from "../NavItem";
 
-function Hamburger() {
+interface IHamburgerProps extends React.PropsWithChildren {}
+
+const Hamburger: React.FunctionComponent<IHamburgerProps> = (
+  props
+): JSX.Element => {
   const [open, setOpen] = useState(false);
   const resizeHandler = () => {
     if (window.innerWidth <= 768) {
@@ -49,6 +53,6 @@ function Hamburger() {
       </div>
     </>
   );
-}
+};
 
 export default Hamburger;

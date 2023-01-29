@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import movies from "../../movies";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import Button from "../common/Button/Button";
+import Button from "../Base/Button";
 
 const movieItems = [...movies];
 
@@ -57,7 +57,7 @@ function MoviesSlider(): JSX.Element {
           ))}
         </div>
         {/* Card */}
-        <div className="absolute top-[47%] left-[6%] flex h-[85%] w-[50%] -translate-x-0 translate-y-[-50%] items-center justify-center gap-3  border-2 border-light-primary bg-light-primary p-3 text-dark-primary dark:border-dark-primary dark:bg-dark-primary dark:text-dark-heading">
+        <div className="absolute top-[47%] left-[4%] flex h-[85%] w-[50%] -translate-x-0 translate-y-[-50%] items-center justify-center gap-3  border-2 border-light-primary bg-light-primary p-3 text-dark-primary dark:border-dark-primary dark:bg-dark-primary dark:text-dark-heading">
           <img
             src={`${movieItems[currentIndex].poster}`}
             className="h-[90%] w-[50%] bg-cover bg-center duration-500"
