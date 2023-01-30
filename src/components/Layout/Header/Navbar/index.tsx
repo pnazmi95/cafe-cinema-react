@@ -14,8 +14,8 @@ const Navbar: React.FunctionComponent<INavbarProps> = (): JSX.Element => {
         <ul className="hidden items-center justify-evenly gap-4 md:flex">
           <NavItem title="home" url="/"/>
           <NavItem title="movies" url="/movies"/>
-          <NavItem title="contact" url="/faq"/>
-          <NavItem title="about" url="/faq"/>
+          <NavItem title="contact" url="/contact"/>
+          <NavItem title="about" url="/about"/>
         </ul>
         <div className="flex items-center justify-evenly gap-10">
           <SearchIcon />

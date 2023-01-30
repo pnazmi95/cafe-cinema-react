@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import movies from "../../movies";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import Button from "../Base/Button";
+interface IMoviesSliderProps extends React.PropsWithChildren {}
 
 const movieItems = [...movies];
 
-function MoviesSlider(): JSX.Element {
+const MoviesSlider: React.FunctionComponent<
+  IMoviesSliderProps
+> = (): JSX.Element => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlideHandler = () => {
@@ -57,7 +60,7 @@ function MoviesSlider(): JSX.Element {
           ))}
         </div>
         {/* Card */}
-        <div className="absolute top-[47%] left-[4%] flex h-[85%] w-[50%] -translate-x-0 translate-y-[-50%] items-center justify-center gap-3  border-2 border-light-primary bg-light-primary p-3 text-dark-primary dark:border-dark-primary dark:bg-dark-primary dark:text-dark-heading">
+        <div className="rounded-md absolute top-[46.25%] left-[4%] flex h-[85%] w-[50%] -translate-x-0 translate-y-[-50%] items-center justify-center gap-3  border-2 border-light-primary bg-light-primary p-3 text-dark-primary dark:border-dark-primary dark:bg-dark-primary dark:text-dark-heading">
           <img
             src={`${movieItems[currentIndex].poster}`}
             className="h-[90%] w-[50%] bg-cover bg-center duration-500"
@@ -102,7 +105,7 @@ function MoviesSlider(): JSX.Element {
               </p>
               <div className="flex flex-col gap-2">
                 <Button title="Add To Card" />
-                <Button title="Read More" />
+                <Button title="Read More" id={currentIndex}/>
               </div>
             </div>
           </div>
@@ -110,7 +113,6 @@ function MoviesSlider(): JSX.Element {
       </div>
     </div>
   );
-}
+};
 
 export default MoviesSlider;
-
