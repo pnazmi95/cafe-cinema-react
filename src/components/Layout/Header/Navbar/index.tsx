@@ -12,11 +12,10 @@ const Navbar: React.FunctionComponent<INavbarProps> = (): JSX.Element => {
       <div className=" flex w-full max-w-7xl items-center justify-between px-4">
         <Hamburger />
         <ul className="hidden items-center justify-evenly gap-4 md:flex">
-          <NavItem title="home" />
-          <NavItem title="movies" />
-          <NavItem title="series" />
-          <NavItem title="contact" />
-          <NavItem title="about" />
+          <NavItem title="home" url="/"/>
+          <NavItem title="movies" url="/movies"/>
+          <NavItem title="contact" url="/faq"/>
+          <NavItem title="about" url="/faq"/>
         </ul>
         <div className="flex items-center justify-evenly gap-10">
           <SearchIcon />

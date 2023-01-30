@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
+import { faMoon, faLightbulb } from "@fortawesome/free-regular-svg-icons";
 
 const DARK = <FontAwesomeIcon icon={faMoon} />;
-const LIGHT = <FontAwesomeIcon icon={faSun} />;
+const LIGHT = <FontAwesomeIcon icon={faLightbulb} />;
 interface IDarkModeToggleProps extends React.PropsWithChildren {}
 
 const DarkModeToggle: React.FunctionComponent<IDarkModeToggleProps> = (
