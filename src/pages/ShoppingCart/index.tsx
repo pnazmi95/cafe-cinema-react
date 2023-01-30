@@ -1,10 +1,12 @@
-interface IShoppingCartProps extends React.PropsWithChildren{}
-const ShoppingCart: React.FunctionComponent<IShoppingCartProps> = (props):JSX.Element => {
-    return (
-        <div className="bg-dark-secondary h-[30px]">
-            This is Shopping cart
-        </div>
-    );
+import CartDetail from "../../components/CartDetail";
+
+interface IShoppingCartProps extends React.PropsWithChildren {}
+const ShoppingCart: React.FunctionComponent<IShoppingCartProps> = (
+  props
+): JSX.Element => {
+  return <div>
+    <CartDetail />
+  </div>;
 };
 
 export default ShoppingCart;
