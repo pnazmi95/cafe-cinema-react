@@ -14,7 +14,7 @@ const MovieCard: React.FunctionComponent<IMoviesCardProps> = ({
         <img src={movies[movieId].poster} alt={movies[movieId].title} />
         <div className=" absolute top-0 left-0 z-10 hidden h-full flex-col items-center justify-between bg-light-primary p-3 text-justify text-light-content group-hover:flex dark:bg-dark-primary dark:text-dark-content">
           {movies[movieId].summary}
-          <Button title="Read More" id={movieId}/>
+          <Button title="Read More" to={`/movie/${movieId}`}/>
         </div>
       </div>
       <h4 className="mt-2 font-bold">{movies[movieId].title}</h4>

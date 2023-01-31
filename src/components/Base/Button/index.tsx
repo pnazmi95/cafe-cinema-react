@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 
 interface IButtonProps extends React.PropsWithChildren {
-  id?: number;
+  to?: any;
   title: string;
 }
 
 const Button: React.FunctionComponent<IButtonProps> = ({
-  title, id
+  title,
+  to,
 }): JSX.Element => {
   return (
-    <Link to={`/movie/${id}`}>
+    <Link to={to}>
       <button
         className="w-full rounded bg-light-content px-4 py-2 text-dark-primary hover:bg-dark-hover dark:bg-dark-secondary dark:text-light-secondary dark:hover:bg-dark-error"
         type="button"

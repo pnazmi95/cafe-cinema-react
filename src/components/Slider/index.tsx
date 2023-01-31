@@ -105,7 +105,7 @@ const MoviesSlider: React.FunctionComponent<
               </p>
               <div className="flex flex-col gap-2">
                 <Button title="Add To Card" />
-                <Button title="Read More" id={currentIndex}/>
+                <Button title="Read More" to={`/movie/${currentIndex}`}/>
               </div>
             </div>
           </div>
