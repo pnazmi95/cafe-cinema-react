@@ -2,12 +2,13 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import HomePage from "./pages/HomePage";
 import MovieListView from "./pages/MovieListView";
-import AccountPage from "./pages/AccountPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import MovieDetailView from "./pages/MovieDetailView";
 import ShoppingCart from "./pages/ShoppingCart";
 import NotFoundPage from "./pages/NotFoundPage";
+import SignupPage from "./pages/SignupPage";
+import SigninPage from "./pages/SigninPage";
 
 function App(): JSX.Element {
   return (
@@ -20,8 +21,8 @@ function App(): JSX.Element {
           <Route index element={<MovieListView />} />
         </Route>
 
-        <Route path="account/sign-up" element={<AccountPage />} />
-        <Route path="account/login" element={<AccountPage />} />
+        <Route path="/sign-up" element={<SignupPage />} />
+        <Route path="/sign-in" element={<SigninPage />} />
 
         <Route path="/contact" element={<Layout />}>
           <Route index element={<ContactPage />} />

@@ -10,7 +10,7 @@ const UserIcon: React.FunctionComponent<IUserIconProps> = (
   return (
     <div className="relative cursor-pointer text-3xl text-light-heading hover:text-light-hover dark:text-dark-heading dark:hover:text-dark-hover">
       <NavLink
-        to={"/account/login"}
+        to={"/sign-in"}
         className={({ isActive }) =>
           isActive
             ? "rounded-b-md text-light-hover dark:text-dark-hover"
