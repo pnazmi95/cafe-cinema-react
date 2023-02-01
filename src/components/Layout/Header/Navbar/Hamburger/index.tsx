@@ -46,6 +46,7 @@ const Hamburger: React.FunctionComponent<IHamburgerProps> = (
         <ul className="flex h-full flex-col items-center justify-center gap-4">
           <NavItem title="home" url="/"/>
           <NavItem title="movies" url="/movies"/>
+          <NavItem title="profile" url="/profile"/>
           <NavItem title="contact" url="/contact"/>
           <NavItem title="about" url="/about"/>
         </ul>

@@ -29,7 +29,7 @@ const MoviesSlider: React.FunctionComponent<
 
   return (
     <div className="flex flex-col items-center justify-center bg-light-primary dark:bg-dark-primary">
-      <div className="group relative m-auto h-[calc(100vh-128px)] w-full max-w-7xl px-2 pb-12 pt-2">
+      <div className="group relative m-auto h-[calc(100vh-192px)] w-full max-w-7xl px-2 pb-12 pt-2">
         <div
           style={{
             backgroundImage: `url(${movieItems[currentIndex].slider})`,
@@ -60,7 +60,10 @@ const MoviesSlider: React.FunctionComponent<
           ))}
         </div>
         {/* Card */}
-        <div className="rounded-md absolute top-[46.25%] left-[4%] flex h-[85%] w-[50%] -translate-x-0 translate-y-[-50%] items-center justify-center gap-3  border-2 border-light-primary bg-light-primary p-3 text-dark-primary dark:border-dark-primary dark:bg-dark-primary dark:text-dark-heading">
+        <div
+          className="absolute top-[45.5%] left-[4%] flex h-[75%] w-[40%] -translate-x-0 translate-y-[-50%] items-center justify-center gap-3 rounded-md  border-2 border-light-primary bg-light-primary p-3 
+        text-sm text-dark-primary dark:border-dark-primary dark:bg-dark-primary dark:text-dark-heading"
+        >
           <img
             src={`${movieItems[currentIndex].poster}`}
             className="h-[90%] w-[50%] bg-cover bg-center duration-500"
@@ -82,7 +85,12 @@ const MoviesSlider: React.FunctionComponent<
                   </span>
                 </div>
               </div>
-              <div className="text-justify dark:text-dark-content">{`${movieItems[currentIndex].summary}`}</div>
+              <div className="overflow-hidden text-ellipsis whitespace-nowrap text-justify dark:text-dark-content">
+                <h4 className="font-bold text-dark-hover dark:text-dark-error">
+                  Summary:
+                </h4>
+                {`${movieItems[currentIndex].summary}`}
+              </div>
             </div>
             <div className="flex flex-col">
               <p>
@@ -105,7 +113,7 @@ const MoviesSlider: React.FunctionComponent<
               </p>
               <div className="flex flex-col gap-2">
                 <Button title="Add To Card" />
-                <Button title="Read More" to={`/movie/${currentIndex}`}/>
+                <Button title="Read More" to={`/movie/${currentIndex}`} />
               </div>
             </div>
           </div>

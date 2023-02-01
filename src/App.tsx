@@ -9,6 +9,7 @@ import ShoppingCart from "./pages/ShoppingCart";
 import NotFoundPage from "./pages/NotFoundPage";
 import SignupPage from "./pages/SignupPage";
 import SigninPage from "./pages/SigninPage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App(): JSX.Element {
   return (
@@ -23,6 +24,9 @@ function App(): JSX.Element {
 
         <Route path="/sign-up" element={<SignupPage />} />
         <Route path="/sign-in" element={<SigninPage />} />
+        <Route path="/profile" element={<Layout />}>
+          <Route index element={<ProfilePage />} />
+        </Route>
 
         <Route path="/contact" element={<Layout />}>
           <Route index element={<ContactPage />} />
