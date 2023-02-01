@@ -29,7 +29,7 @@ const MoviesSlider: React.FunctionComponent<
 
   return (
     <div className="flex flex-col items-center justify-center bg-light-primary dark:bg-dark-primary">
-      <div className="group relative m-auto h-[calc(100vh-192px)] w-full max-w-7xl px-2 pb-12 pt-2">
+      <div className="group relative m-auto h-[calc(100vh-176px)] w-full max-w-7xl px-2 pb-12 pt-2">
         <div
           style={{
             backgroundImage: `url(${movieItems[currentIndex].slider})`,

@@ -8,8 +8,14 @@ const MovieDetail: React.FunctionComponent<IMovieDetailProps> = ({
 }): JSX.Element => {
   return (
     <section
-      className=" w-screen bg-cover bg-center md:h-screen  "
-      style={{ backgroundImage: `url(${movies[movieId].slider})` }}
+      className="h-[calc(100vh-176px)] w-full bg-cover bg-center"
+      // md:h-[clac(100vh-192px)]
+      style={{
+        backgroundImage: `url(${movies[movieId].slider})`,
+        backgroundRepeat: `no-repeat`,
+        backgroundPosition: `center center`,
+        backgroundSize: `cover`,
+      }}
     >
       <div className="flex h-full w-full items-center justify-center bg-light-primary p-5 backdrop-blur-lg dark:bg-dark-primary md:w-1/2">
         <div className="flex flex-col gap-5  sm:flex-row">
@@ -35,7 +41,7 @@ const MovieDetail: React.FunctionComponent<IMovieDetailProps> = ({
                   </span>
                 </div>
               </div>
-              <span className="text-2xl text-light-hover">sumery:</span>
+              <span className="text-2xl text-light-hover">summary:</span>
               <p className="text-1xl"> {movies[movieId].summary}</p>
             </div>
             <div>
@@ -56,9 +62,10 @@ const MovieDetail: React.FunctionComponent<IMovieDetailProps> = ({
                   {movies[movieId].stars.join(" | ")}
                 </span>
               </div>
-              {/* <button onClick={() => handleClick(movieId)} className=" border-blue-700 center flex w-full content-center items-center justify-center rounded bg-dark-hover py-2 px-4 text-2xl font-bold uppercase text-dark-primary">
+              {/* onClick={() => handleClick(movieId)} */}
+              <button className=" border-blue-700 center flex w-full content-center items-center justify-center rounded bg-dark-hover py-2 px-4 text-2xl font-bold uppercase text-dark-primary">
                 buy
-              </button> */}
+              </button>
             </div>
           </div>
         </div>
