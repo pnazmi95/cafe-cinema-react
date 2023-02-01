@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import movies from "../../movies";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import Button from "../Base/Button";
@@ -10,6 +10,23 @@ const MoviesSlider: React.FunctionComponent<
   IMoviesSliderProps
 > = (): JSX.Element => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  let sliderInterval: any;
+
+  const slideSpeed: number = 4000;
+  const autoPlay: boolean = true;
+
+  useEffect(
+    () => {
+      autoPlay && autoPlayFunc();
+      return () => clearInterval(sliderInterval);
+    },
+    [currentIndex]
+  )
+
+  const autoPlayFunc = (): void => {
+    sliderInterval = setInterval(nextSlideHandler, slideSpeed);
+  };
 
   const prevSlideHandler = () => {
     const isFirstSlide = currentIndex === 0;
