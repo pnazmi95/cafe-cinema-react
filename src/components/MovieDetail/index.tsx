@@ -9,7 +9,6 @@ const MovieDetail: React.FunctionComponent<IMovieDetailProps> = ({
   return (
     <section
       className="h-[calc(100vh-176px)] w-full bg-cover bg-center"
-      // md:h-[clac(100vh-192px)]
       style={{
         backgroundImage: `url(${movies[movieId].slider})`,
         backgroundRepeat: `no-repeat`,
