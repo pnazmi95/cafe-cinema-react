@@ -5,6 +5,7 @@ interface TeamCardProps extends React.PropsWithChildren {
   role: string;
   github?: string;
   linkedin?: string;
+  imgSrc?: string;
 }
 
 export const TeamCard: React.FunctionComponent<TeamCardProps> = ({
@@ -12,10 +13,13 @@ export const TeamCard: React.FunctionComponent<TeamCardProps> = ({
   role,
   github,
   linkedin,
+  imgSrc
 }): JSX.Element => {
   return (
     <div className="flex w-[450px] items-center justify-between gap-3 rounded-xl bg-light-secondary p-3 text-light-content transition-all hover:scale-[102%] dark:bg-dark-secondary dark:text-dark-content">
-      <img className="w-32 rounded-lg" src={logo} alt="logo" />
+      <img className="w-32 rounded-lg" src={
+        imgSrc ? imgSrc : logo 
+      } alt="logo" />
       <div className="flex h-full w-full flex-col justify-between">
         <p className="te flex flex-col uppercase text-light-heading dark:text-dark-heading">
           {name}

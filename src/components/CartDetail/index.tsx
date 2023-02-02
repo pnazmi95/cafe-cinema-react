@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import movies from "../../movies";
+import Aside from "./Aside";
+interface IShoppingCartProps extends React.PropsWithChildren {}
 
-interface ICartDetailProps extends React.PropsWithChildren {}
 
-const movieEdit = movies.map((item: any) => {
+
+const recreateList = movies.map((item: any) => {
   item.count = 1;
   item.price = 5;
   item.cost = item.price;
   return item;
 });
 
-const CartDetail: React.FunctionComponent<ICartDetailProps> = (
-  props
-): JSX.Element => {
-  const [movie, setMovie] = useState(movieEdit);
+const ShoppingCart: React.FunctionComponent<IShoppingCartProps> = (props): JSX.Element => {
+  const [movie, setMovie] = useState(recreateList);
 
   const plusCount = (id: string) => {
     const newList = movie.map((item) => {
@@ -25,6 +25,7 @@ const CartDetail: React.FunctionComponent<ICartDetailProps> = (
     });
     setMovie(newList);
   };
+
   const minesCount = (id: string) => {
     let newList = movie.map((item) => {
       if (item.id === id) {
@@ -42,83 +43,72 @@ const CartDetail: React.FunctionComponent<ICartDetailProps> = (
     setMovie(movieDlt);
   };
 
-  const totalCost = movie.reduce((acc, curItem) => curItem.cost + acc, 0);
+  let totalCost = movie.reduce((acc, curItem) => curItem.cost + acc, 0);
 
   return (
-    <div className="flex select-none bg-light-primary dark:bg-dark-primary dark:text-light-secondary">
-      <section className="bg-gray-100 h-fit w-[70%] px-64 py-20">
-        <div>
-          <div className="flex justify-between border-b-2 py-6 px-3">
-            <div className="">Shopping Card</div>
-            <div className="">{movie.length} items</div>
-          </div>
-          <div className="grid grid-cols-4 gap-x-[100px] gap-y-[30px] py-6">
-            <div>Movie Details</div>
-            <div>Quantity</div>
-            <div className="col-span-2">Price</div>
-            {movie.map((item) => {
-              return (
-                <>
-                  <div className="flex items-center gap-3 py-3">
-                    <img className="w-[50px]" src={item.poster} />
-                    <div>{item.title}</div>
+    <div className="flex min-h-screen select-none flex-col bg-light-primary py-8 px-12 dark:bg-dark-primary dark:text-light-secondary lg:flex-row lg:gap-10 lg:px-20 lg:py-12 xl:flex-row xl:gap-10 xl:px-20 xl:py-12 ">
+      <section className="flex flex-col lg:w-[70%] xl:w-[70%]">
+        <nav className="flex justify-between border-b-2 py-3 px-4 text-2xl font-bold xl:px-8">
+          <div>Shopping Card</div>
+          <div className="text-lg font-semibold">{movie.length} items</div>
+        </nav>
+        <header className="font-base xl: flex justify-center gap-6 py-6 text-lg md:justify-start md:gap-16 md:px-24 xl:gap-36 xl:px-32">
+          <div>Movie Details</div>
+          <div className="">Quantity</div>
+          <div className="">Price</div>
+        </header>
+        <main className="flex flex-col gap-7 text-base xl:text-xl ">
+          {movie.map((item) => {
+            return (
+              <div
+                key={item.id}
+                className="sm:gap-18 grid grid-cols-4 gap-9 py-3 px-10 lg:grid-cols-5 lg:gap-4 xl:grid-cols-5 xl:gap-4"
+              >
+                <div className="flex flex-col items-center justify-center gap-5 md:flex-row lg:col-span-2 lg:flex-row xl:col-span-2 xl:flex-row">
+                  <img
+                    className="w-22 md:w-20 lg:w-20 xl:w-28"
+                    src={item.poster}
+                    alt={`${item.title}`}
+                  />
+                  <div className="flex w-32  justify-center text-xs sm:w-44 sm:text-base sm:font-normal ">
+                    {item.title}
                   </div>
-                  <div className="flex items-center gap-3">
-                    <button
-                      className="w-7 rounded-lg bg-light-content p-1 hover:text-light-hover"
-                      onClick={() => minesCount(item.id)}
-                    >
-                      -
-                    </button>
-                    <div>{item.count}</div>
-                    <button
-                      className="w-7 rounded-lg bg-light-content p-1 hover:text-light-hover"
-                      onClick={() => plusCount(item.id)}
-                    >
-                      +
-                    </button>
-                  </div>
-
-                  <div className="flex items-center">{item.cost} $</div>
-                  <div className="flex items-center ">
-                    <button
-                      className="rounded-lg bg-light-content px-5 py-2 text-sm   hover:text-light-hover"
-                      onClick={() => deleteItem(item.id)}
-                    >
-                      Remove
-                    </button>
-                  </div>
-                </>
-              );
-            })}
-          </div>
-        </div>
+                </div>
+                <div className="flex flex-col-reverse items-center justify-center gap-2 sm:flex-row md:flex-row lg:flex-row xl:flex-row xl:gap-4">
+                  <button
+                    className="w-7 rounded-lg bg-light-content p-1 text-light-secondary hover:text-light-hover dark:bg-dark-content dark:text-dark-primary xl:w-9 xl:p-2 xl:text-xl"
+                    onClick={() => minesCount(item.id)}
+                  >
+                    -
+                  </button>
+                  <div>{item.count}</div>
+                  <button
+                    className="w-7 rounded-lg bg-light-content p-1 text-light-secondary hover:text-light-hover dark:bg-dark-content dark:text-dark-primary xl:w-9 xl:p-2 xl:text-xl"
+                    onClick={() => plusCount(item.id)}
+                  >
+                    +
+                  </button>
+                </div>
+                <div className="flex items-center justify-center">
+                  {item.cost} $
+                </div>
+                <div className="flex items-center">
+                  <button
+                    className="rounded-lg bg-light-content px-4 py-1.5 text-xs   text-light-secondary hover:text-light-hover dark:bg-dark-content dark:text-dark-primary xl:px-7 xl:py-2 xl:text-xl"
+                    onClick={() => deleteItem(item.id)}
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </main>
       </section>
-      <aside className="bg-gray-200 sticky top-0 flex h-[800px] w-[30%] flex-col items-start justify-start gap-32 px-16 py-20">
-        <div className="border-b-2 py-6">Order Summary</div>
-        <div className="flex flex-col gap-7">
-          <label htmlFor="">Promo Code</label>
-          <input
-            type="text"
-            className="rounded-lg bg-light-secondary outline-none focus:border-2 focus:border-light-error dark:bg-dark-secondary"
-          />
-          <button className="rounded-lg bg-light-content py-3 px-10 hover:text-light-hover">
-            Apply
-          </button>
-        </div>
 
-        <div className="flex flex-col gap-7">
-          <div className="flex gap-6">
-            <div>Total cost</div>
-            <div>{totalCost} $</div>
-          </div>
-          <button className="rounded-lg bg-light-content py-3 px-20 hover:text-light-hover ">
-            Checkout
-          </button>
-        </div>
-      </aside>
+      <Aside totalCost={totalCost} />
     </div>
   );
 };
 
-export default CartDetail;
+export default ShoppingCart;
