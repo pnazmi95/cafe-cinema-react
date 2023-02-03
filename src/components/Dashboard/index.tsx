@@ -1,6 +1,8 @@
 import React from "react";
 import CardBox from "./CardBox/CardBox";
 import Chart from "./Chart/Chart";
+import Mohammad from "../../assets/membersImages/Mohammad.jpg";
+
 interface IDashboardProps extends React.PropsWithChildren {
   name: string;
   gmail: string;
@@ -11,14 +13,15 @@ const Dashboard: React.FunctionComponent<IDashboardProps> = ({
   gmail,
 }): JSX.Element => {
   return (
-    <div className="h-[calc(100vh-176px)] bg-light-primary dark:bg-dark-content">
+    <div className="h-[calc(100vh-176px)] overflow-y-auto">
       <div className="Head py-2 text-center ">
-        <h1>Dashboard</h1>
-        <div className="flex  flex-wrap items-center justify-center">
-          <span className="mx-2 p-2 dark:bg-dark-primary dark:text-dark-content">
+        <h1 className="text-2xl font-bold">Dashboard</h1>
+        <div className="flex  flex-wrap flex-col gap-2 sm:flex-row items-center justify-center">
+          <img className="w-32 rounded-lg" src={Mohammad} alt="logo" />
+          <span className="mx-2 p-2 dark:rounded-md dark:bg-dark-primary dark:text-dark-content">
             <span className="font-bold">Username : </span> {name}
           </span>
-          <span className="p-2 dark:bg-dark-primary dark:text-dark-content">
+          <span className="p-2 dark:rounded-md dark:bg-dark-primary dark:text-dark-content">
             <span className="font-bold">Gmail : </span>
             {gmail}
           </span>
