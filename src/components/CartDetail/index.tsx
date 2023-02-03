@@ -3,8 +3,6 @@ import movies from "../../movies";
 import Aside from "./Aside";
 interface IShoppingCartProps extends React.PropsWithChildren {}
 
-
-
 const recreateList = movies.map((item: any) => {
   item.count = 1;
   item.price = 5;
@@ -12,7 +10,9 @@ const recreateList = movies.map((item: any) => {
   return item;
 });
 
-const ShoppingCart: React.FunctionComponent<IShoppingCartProps> = (props): JSX.Element => {
+const ShoppingCart: React.FunctionComponent<IShoppingCartProps> = (
+  props
+): JSX.Element => {
   const [movie, setMovie] = useState(recreateList);
 
   const plusCount = (id: string) => {
@@ -76,14 +76,14 @@ const ShoppingCart: React.FunctionComponent<IShoppingCartProps> = (props): JSX.E
                 </div>
                 <div className="flex flex-col-reverse items-center justify-center gap-2 sm:flex-row md:flex-row lg:flex-row xl:flex-row xl:gap-4">
                   <button
-                    className="w-7 rounded-lg bg-light-content p-1 text-light-secondary hover:text-light-hover dark:bg-dark-content dark:text-dark-primary xl:w-9 xl:p-2 xl:text-xl"
+                    className="w-7 rounded-lg bg-light-content p-1 text-light-secondary hover:bg-dark-hover hover:text-light-heading hover:dark:bg-dark-hover dark:bg-dark-content dark:text-dark-primary xl:w-9 xl:p-2 xl:text-xl"
                     onClick={() => minesCount(item.id)}
                   >
                     -
                   </button>
                   <div>{item.count}</div>
                   <button
-                    className="w-7 rounded-lg bg-light-content p-1 text-light-secondary hover:text-light-hover dark:bg-dark-content dark:text-dark-primary xl:w-9 xl:p-2 xl:text-xl"
+                    className="w-7 rounded-lg bg-light-content p-1 text-light-secondary hover:bg-dark-hover hover:text-light-heading hover:dark:bg-dark-hover dark:bg-dark-content dark:text-dark-primary xl:w-9 xl:p-2 xl:text-xl"
                     onClick={() => plusCount(item.id)}
                   >
                     +
@@ -94,7 +94,7 @@ const ShoppingCart: React.FunctionComponent<IShoppingCartProps> = (props): JSX.E
                 </div>
                 <div className="flex items-center">
                   <button
-                    className="rounded-lg bg-light-content px-4 py-1.5 text-xs   text-light-secondary hover:text-light-hover dark:bg-dark-content dark:text-dark-primary xl:px-7 xl:py-2 xl:text-xl"
+                    className="rounded-lg bg-light-content px-4 py-1.5 text-xs text-light-secondary hover:bg-dark-hover   hover:text-light-heading hover:dark:bg-dark-hover dark:bg-dark-content dark:text-dark-primary xl:px-7 xl:py-2 xl:text-xl"
                     onClick={() => deleteItem(item.id)}
                   >
                     Remove

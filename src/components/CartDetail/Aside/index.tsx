@@ -13,7 +13,7 @@ const Aside = ({ totalCost }:any) => {
           type="text"
           className="w-32 rounded-lg bg-light-secondary py-1 px-3 outline-none focus:border-2 focus:border-light-error dark:bg-dark-secondary xl:py-1.5"
         />
-        <button className="text-xm w-32 rounded-lg bg-light-content py-1 px-3 text-light-secondary hover:text-light-hover dark:bg-dark-content dark:text-dark-primary lg:py-1.5 xl:text-lg xl:py-1.5">
+        <button className="text-xm w-32 rounded-lg hover:bg-dark-hover hover:dark:bg-dark-hover hover:text-light-heading bg-light-content py-1 px-3 text-light-secondary dark:bg-dark-content dark:text-dark-primary lg:py-1.5 xl:text-lg xl:py-1.5">
           Apply
         </button>
       </div>
@@ -23,7 +23,7 @@ const Aside = ({ totalCost }:any) => {
           <div>Total cost</div>
           <div>{totalCost} $</div>
         </div>
-        <button className="w-32 rounded-lg bg-light-content py-2 px-2 text-xs text-light-secondary hover:text-light-hover dark:bg-dark-content dark:text-dark-primary xl:text-lg xl:py-1.5 lg:py-1.5 lg:text-base ">
+        <button className="w-32 rounded-lg hover:bg-dark-hover  hover:dark:bg-dark-hover hover:text-light-heading bg-light-content py-2 px-2 text-xs text-light-secondary dark:bg-dark-content dark:text-dark-primary xl:text-lg xl:py-1.5 lg:py-1.5 lg:text-base ">
           Checkout
         </button>
       </div>
