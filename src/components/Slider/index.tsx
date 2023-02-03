@@ -46,7 +46,7 @@ const MoviesSlider: React.FunctionComponent<
 
   return (
     <div className="flex flex-col items-center justify-center bg-light-primary dark:bg-dark-primary">
-      <div className="group relative m-auto h-[calc(100vh-176px)] w-full max-w-7xl px-2 pb-12 pt-2">
+      <div className="group relative m-auto h-[calc(100vh-176px)] w-full max-w-7xl px-2 pb-2 md:pb-12 pt-2">
         <div
           style={{
             backgroundImage: `url(${movieItems[currentIndex].slider})`,
@@ -63,7 +63,7 @@ const MoviesSlider: React.FunctionComponent<
           </div>
         </div>
         {/* dots */}
-        <div className="top-4 flex items-center justify-center gap-2 py-5">
+        <div className="top-4 hidden md:flex items-center justify-center gap-2 py-5">
           {movieItems.map((item, index) => (
             <div
               key={index}
@@ -71,14 +71,15 @@ const MoviesSlider: React.FunctionComponent<
                 goToSlide(index);
               }}
               className={`h-[0.5rem] w-[0.5rem] cursor-pointer rounded-full bg-dark-primary dark:bg-light-primary ${
-                currentIndex === index && "bg-dark-error dark:bg-dark-error"
+                currentIndex === index && "md:bg-dark-error md:dark:bg-dark-error"
               }`}
             ></div>
           ))}
         </div>
         {/* Card */}
         <div
-          className="absolute top-[45.5%] left-[4%] flex h-[75%] w-[40%] -translate-x-0 translate-y-[-50%] items-center justify-center gap-3 rounded-md  border-2 border-light-primary bg-light-primary p-3 
+          className="absolute top-[50%] md:top-[45.5%] md:left-[4%] flex 
+          h-[88%] md:h-[75%] w-[80%] left-[10%] md:w-[40%] -translate-x-0 translate-y-[-50%] items-center justify-center gap-3 rounded-md  border-2 border-light-primary bg-light-primary p-3 
         text-sm text-dark-primary dark:border-dark-primary dark:bg-dark-primary dark:text-dark-heading"
         >
           <img

@@ -6,15 +6,19 @@ interface IHamburgerProps extends React.PropsWithChildren {}
 const Hamburger: React.FunctionComponent<IHamburgerProps> = (
   props
 ): JSX.Element => {
+
   const [open, setOpen] = useState(false);
   const resizeHandler = () => {
     if (window.innerWidth <= 768) {
-      setOpen(false);
+      handleClose();
     }
   };
   window.addEventListener("resize", resizeHandler);
   const openHandler = () => {
     setOpen(!open);
+  };
+  const handleClose = () => {
+    setOpen(false);
   };
   return (
     <>
@@ -44,11 +48,11 @@ const Hamburger: React.FunctionComponent<IHamburgerProps> = (
         } fixed left-0 top-[128px] h-[calc(100vh-128px)] w-full bg-light-primary transition-all duration-300 dark:bg-dark-primary`}
       >
         <ul className="flex h-full flex-col items-center justify-center gap-4">
-          <NavItem title="home" url="/"/>
-          <NavItem title="movies" url="/movies"/>
-          <NavItem title="profile" url="/profile"/>
-          <NavItem title="contact" url="/contact"/>
-          <NavItem title="about" url="/about"/>
+          <NavItem onClick={handleClose} title="home" url="/" />
+          <NavItem onClick={handleClose} title="movies" url="/movies" />
+          <NavItem onClick={handleClose} title="profile" url="/profile" />
+          <NavItem onClick={handleClose} title="contact" url="/contact" />
+          <NavItem onClick={handleClose} title="about" url="/about" />
         </ul>
       </div>
     </>
