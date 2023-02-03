@@ -90,7 +90,7 @@ const MoviesSlider: React.FunctionComponent<
             <div className="flex flex-col">
               <div
                 id="MovieTitle"
-                className="font-bold uppercase text-dark-hover dark:text-dark-error "
+                className="font-bold uppercase text-light-hover dark:text-dark-error "
               >
                 {`${movieItems[currentIndex].title}`}
               </div>
@@ -98,13 +98,13 @@ const MoviesSlider: React.FunctionComponent<
                 <div>{`${movieItems[currentIndex].year}`}</div>
                 <div>
                   {`${movieItems[currentIndex].rate}/10`}
-                  <span className="font-bold text-dark-hover dark:text-dark-error ">
+                  <span className="font-bold text-light-hover dark:text-dark-error ">
                     IMDB
                   </span>
                 </div>
               </div>
               <div className="overflow-hidden text-ellipsis whitespace-nowrap text-justify dark:text-dark-content">
-                <h4 className="font-bold text-dark-hover dark:text-dark-error">
+                <h4 className="font-bold text-light-hover dark:text-dark-error">
                   Summary:
                 </h4>
                 {`${movieItems[currentIndex].summary}`}
@@ -112,19 +112,19 @@ const MoviesSlider: React.FunctionComponent<
             </div>
             <div className="flex flex-col">
               <p>
-                <span className="font-bold text-dark-hover dark:text-dark-error">
+                <span className="font-bold text-light-hover dark:text-dark-error">
                   Director:{" "}
                 </span>
                 {`${movieItems[currentIndex].director}`}
               </p>
               <p>
-                <span className="font-bold text-dark-hover dark:text-dark-error">
+                <span className="font-bold text-light-hover dark:text-dark-error">
                   Stars:{" "}
                 </span>
                 {`${movieItems[currentIndex].stars.join(", ")}`}
               </p>
               <p>
-                <span className="font-bold text-dark-hover dark:text-dark-error">
+                <span className="font-bold text-light-hover dark:text-dark-error">
                   Geners:{" "}
                 </span>
                 {`${movieItems[currentIndex].genre.join(", ")}`}
