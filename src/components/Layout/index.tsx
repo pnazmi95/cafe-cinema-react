@@ -6,17 +6,14 @@ interface ILayoutProps extends React.PropsWithChildren {}
 
 const Layout: React.FunctionComponent<ILayoutProps> = (props): JSX.Element => {
   return (
-    <div className="font-display overflow-hidden">
+    <div className="overflow-hidden font-display">
       <Header />
-      <div>
-        <Outlet />
-      </div>
+
+      <Outlet />
+
       <Footer />
     </div>
   );
 };
 
 export default Layout;
-
-
-
